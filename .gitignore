@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/swift,xcode,bitrise,macos,git
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,xcode,bitrise,macos,git
 
+### Manual Input
+Constants.swift
+
+
 ### Bitrise ###
 .bitrise.secrets.yml
 
