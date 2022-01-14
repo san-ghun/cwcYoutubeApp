@@ -12,7 +12,8 @@ class Model {
     func getVideos() {
         
         // Create a URL object
-        let url = URL(string: Constants.API_URL)
+        //let url = URL(string: Constants.API_URL)
+        let url = URL(string: ConstantsTemplate.API_URL)
         
         guard url != nil else { return }
         
