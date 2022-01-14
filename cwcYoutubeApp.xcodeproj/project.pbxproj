@@ -16,7 +16,6 @@
 		BD7624352790401400AD26B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7624342790401400AD26B7 /* Constants.swift */; };
 		BD7624372790421E00AD26B7 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7624362790421E00AD26B7 /* Video.swift */; };
 		BD7624392790424B00AD26B7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7624382790424B00AD26B7 /* Model.swift */; };
-		BD76243B2790511000AD26B7 /* ConstantsTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76243A2790511000AD26B7 /* ConstantsTemplate.swift */; };
 		BD76243D2791AE8300AD26B7 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76243C2791AE8300AD26B7 /* Response.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		BD7624342790401400AD26B7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD7624362790421E00AD26B7 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		BD7624382790424B00AD26B7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		BD76243A2790511000AD26B7 /* ConstantsTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsTemplate.swift; sourceTree = "<group>"; };
 		BD76243C2791AE8300AD26B7 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +74,6 @@
 				BD7624342790401400AD26B7 /* Constants.swift */,
 				BD7624362790421E00AD26B7 /* Video.swift */,
 				BD7624382790424B00AD26B7 /* Model.swift */,
-				BD76243A2790511000AD26B7 /* ConstantsTemplate.swift */,
 				BD76243C2791AE8300AD26B7 /* Response.swift */,
 			);
 			path = cwcYoutubeApp;
@@ -154,7 +151,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD76243D2791AE8300AD26B7 /* Response.swift in Sources */,
-				BD76243B2790511000AD26B7 /* ConstantsTemplate.swift in Sources */,
 				BD76242527900F2C00AD26B7 /* ViewController.swift in Sources */,
 				BD76242127900F2C00AD26B7 /* AppDelegate.swift in Sources */,
 				BD76242327900F2C00AD26B7 /* SceneDelegate.swift in Sources */,
