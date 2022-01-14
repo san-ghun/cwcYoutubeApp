@@ -3,7 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,xcode,bitrise,macos,git
 
 ### Manual Input
-Constants.swift
+#Constants.swift
 
 
 ### Bitrise ###
