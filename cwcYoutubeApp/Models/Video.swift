@@ -7,6 +7,18 @@
 
 import Foundation
 
+/**
+ Video is model to decode JSON data of a video from API into data usable to Swift data type.
+ 
+ ```
+ // Properties
+ var videoId = ""
+ var title = ""
+ var description = ""
+ var thumbnail = ""
+ var published = Date()
+ ```
+ */
 struct Video: Decodable {
     
     var videoId = ""

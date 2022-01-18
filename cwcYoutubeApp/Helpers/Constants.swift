@@ -7,6 +7,14 @@
 
 import Foundation
 
+/**
+ Storing Constants values that needed to run the application.
+ 
+ To run the app properly, input the API_KEY for YouTube Data API v3 from Google Cloud Platform.
+ 
+ **Note**: Need `API_Key` and `PLAYLIST_ID` to complete `API_URL` which is needed to get YouTube Videos data in the playlist from API call.
+ 
+ */
 struct Constants {
     
     static var API_KEY = ""
