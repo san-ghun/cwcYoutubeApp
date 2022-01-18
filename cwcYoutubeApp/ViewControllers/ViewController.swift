@@ -9,10 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - Properties
+    
+    // MARK: IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
     var model = Model()
     var videos = [Video]()
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

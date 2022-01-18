@@ -10,8 +10,8 @@
 		BD1EBD2B2796812300BBCF9A /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1EBD2A2796812300BBCF9A /* VideoTableViewCell.swift */; };
 		BD6A8EFB27968AE300B4C2F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A8EFA27968AE300B4C2F0 /* Constants.swift */; };
 		BD6A8EFD2796A05900B4C2F0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A8EFC2796A05900B4C2F0 /* DetailViewController.swift */; };
-		BD6A8F002796A63100B4C2F0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6A8EFF2796A63100B4C2F0 /* WebKit.framework */; };
 		BD6A8F032796AC9100B4C2F0 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = BD6A8F022796AC9100B4C2F0 /* YouTubeiOSPlayerHelper */; };
+		BD723485279727C000280764 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6A8EFF2796A63100B4C2F0 /* WebKit.framework */; };
 		BD76242127900F2C00AD26B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76242027900F2C00AD26B7 /* AppDelegate.swift */; };
 		BD76242327900F2C00AD26B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76242227900F2C00AD26B7 /* SceneDelegate.swift */; };
 		BD76242527900F2C00AD26B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD76242427900F2C00AD26B7 /* ViewController.swift */; };
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD6A8F002796A63100B4C2F0 /* WebKit.framework in Frameworks */,
+				BD723485279727C000280764 /* WebKit.framework in Frameworks */,
 				BD6A8F032796AC9100B4C2F0 /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

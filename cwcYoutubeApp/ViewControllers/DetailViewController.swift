@@ -6,11 +6,13 @@
 //
 
 import UIKit
-import WebKit
 import YouTubeiOSPlayerHelper
 
 class DetailViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    // MARK: IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -21,6 +23,7 @@ class DetailViewController: UIViewController {
     
     var video: Video?
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 

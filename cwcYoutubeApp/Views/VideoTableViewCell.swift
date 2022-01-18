@@ -9,6 +9,9 @@ import UIKit
 
 class VideoTableViewCell: UITableViewCell {
     
+    // MARK: - Properties
+    
+    // MARK: IBOutlets
     @IBOutlet weak var thumbnailImageVIew: UIImageView!
     
     @IBOutlet weak var titleLable: UILabel!
@@ -28,6 +31,7 @@ class VideoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    /// A method set table cell properties
     func setCell(_ v: Video) {
         
         self.video = v
