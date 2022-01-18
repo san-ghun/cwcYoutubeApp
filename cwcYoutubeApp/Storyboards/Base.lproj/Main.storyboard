@@ -109,26 +109,15 @@
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYu-Hf-Xso" customClass="Todo">
-                                        <rect key="frame" x="0.0" y="61" width="374" height="210.5"/>
-                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="NYu-Hf-Xso" secondAttribute="height" multiplier="1280:720" id="9sp-Bz-3El"/>
-                                        </constraints>
-                                        <wkWebViewConfiguration key="configuration">
-                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                            <wkPreferences key="preferences"/>
-                                        </wkWebViewConfiguration>
-                                    </wkWebView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5oe-8P-7m8" customClass="YTPlayerView">
-                                        <rect key="frame" x="0.0" y="281.5" width="374" height="210.5"/>
+                                        <rect key="frame" x="0.0" y="61" width="374" height="210.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5oe-8P-7m8" secondAttribute="height" multiplier="1280:720" id="RJW-bo-xRa"/>
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="247" verticalCompressionResistancePriority="747" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rRZ-nc-aXv">
-                                        <rect key="frame" x="0.0" y="502" width="374" height="256"/>
+                                        <rect key="frame" x="0.0" y="281.5" width="374" height="476.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,7 +141,6 @@
                         <outlet property="dateLabel" destination="v3A-Ic-2us" id="Qoq-YZ-Er1"/>
                         <outlet property="textView" destination="rRZ-nc-aXv" id="KSv-G6-L5t"/>
                         <outlet property="titleLabel" destination="JFM-bf-5OG" id="rTD-A9-yzB"/>
-                        <outlet property="webView" destination="NYu-Hf-Xso" id="P3u-XA-CER"/>
                         <outlet property="youtubePlayerView" destination="5oe-8P-7m8" id="Jph-0h-unh"/>
                     </connections>
                 </viewController>

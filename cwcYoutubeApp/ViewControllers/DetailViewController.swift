@@ -15,8 +15,6 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    @IBOutlet weak var webView: WKWebView!
-    
     @IBOutlet weak var youtubePlayerView: YTPlayerView!
     
     @IBOutlet weak var textView: UITextView!
@@ -39,16 +37,8 @@ class DetailViewController: UIViewController {
         // Check if there's a video
         guard video != nil else { return }
         
-        // Create the embed URL
-        let embedUrlString = Constants.YT_EMBED_URL + video!.videoId
-        
-        // Load it into the webview
-        let url = URL(string: embedUrlString)
-        let request = URLRequest(url: url!)
-        webView.load(request)
-        
         // Load it into the Youtube player view
-        self.youtubePlayerView.load(withVideoId: video!.videoId)
+        self.youtubePlayerView.load(withVideoId: video!.videoId, playerVars: ["playsinline": 1])
         
         // Set the title
         titleLabel.text = video!.title
