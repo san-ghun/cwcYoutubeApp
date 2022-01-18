@@ -7,14 +7,19 @@
 
 import Foundation
 
+/// Protocol for Model object to set delegate
 protocol ModelDelegate {
     func videosFetched(_ videos: [Video])
 }
 
+/**
+ Model object get videos data in JSON format via API and decode into `[Video()]`
+ */
 class Model {
     
     var delegate: ModelDelegate?
     
+    /// A method to get videos data and decode into a list of video objects and fetch to delegate.
     func getVideos() {
         
         // Create a URL object

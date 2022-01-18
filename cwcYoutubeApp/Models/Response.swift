@@ -7,6 +7,14 @@
 
 import Foundation
 
+/**
+ Response is model to decode JSON data of videos from API into a list of videos data usable to Swift data type.
+ 
+ ```
+ // Properties
+ var items: [Video]?
+ ```
+ */
 struct Response: Decodable {
     
     var items: [Video]?
