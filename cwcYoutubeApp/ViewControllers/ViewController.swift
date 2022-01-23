@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var navbarTitle: UINavigationItem!
+    @IBOutlet weak var gearButton: UIBarButtonItem!
     
     var model = Model()
     var videos = [Video]()
@@ -33,6 +35,18 @@ class ViewController: UIViewController {
         model.getVideos()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        model.getVideos()
+        
+        if self.videos.count == 0 {
+            self.navbarTitle.title = "No vidoes to play"
+        } else {
+            self.navbarTitle.title = ""
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Confirm that a video was selected
@@ -47,8 +61,19 @@ class ViewController: UIViewController {
         // Set the video property of the detail view controller
         detailVC.video = selectedVideo
     }
-
-
+    
+    // MARK: - Methods
+    
+    // MARK: IBActions
+    @IBAction func didTappedGearButton(_ sender: Any) {
+        
+        self.videos = [Video]()
+        
+        let inputVC = storyboard?.instantiateViewController(withIdentifier: Constants.inputViewController) as? InputViewController
+        view.window?.rootViewController = inputVC
+        view.window?.makeKeyAndVisible()
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate, ModelDelegate {
