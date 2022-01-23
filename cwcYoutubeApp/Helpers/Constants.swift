@@ -15,11 +15,20 @@ import Foundation
  **Note**: Need `API_Key` and `PLAYLIST_ID` to complete `API_URL` which is needed to get YouTube Videos data in the playlist from API call.
  
  */
-struct Constants {
+class Constants {
+    static let shared: Constants = Constants()
     
-    static var API_KEY = ""
-    static var PLAYLIST_ID = ""
-    static var API_URL = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=\(Constants.PLAYLIST_ID)&key=\(Constants.API_KEY)"
+//    static var API_KEY = ""
+//    static var PLAYLIST_ID = ""
+//    static var API_URL = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=\(Constants.PLAYLIST_ID)&key=\(Constants.API_KEY)"
+    
+    var API_KEY = ""
+    var PLAYLIST_ID = ""
+    var API_URL: String {
+        get {
+            "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=\(Constants.shared.PLAYLIST_ID)&key=\(Constants.shared.API_KEY)"
+        }
+    }
     
     static let viewController = "VC"
     static let inputViewController = "InputVC"

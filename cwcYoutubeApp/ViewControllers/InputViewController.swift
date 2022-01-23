@@ -10,8 +10,8 @@ import UIKit
 class InputViewController: UIViewController {
     
     // MARK: - Properties
-    var apiKey: String = Constants.API_KEY
-    var playlistId: String = Constants.PLAYLIST_ID
+    var apiKey: String = Constants.shared.API_KEY
+    var playlistId: String = Constants.shared.PLAYLIST_ID
     
     // MARK: IBOutlets
     @IBOutlet weak var titleImageView: UIImageView!
@@ -20,7 +20,7 @@ class InputViewController: UIViewController {
     @IBOutlet weak var playlistIdLabel: UILabel!
     @IBOutlet weak var playlistIdTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
 
     // MARK: - Life Cycle
@@ -32,8 +32,8 @@ class InputViewController: UIViewController {
         
         self.addViewsWithCode()
         
-        keyTextField.text = Constants.API_KEY
-        playlistIdTextField.text = Constants.PLAYLIST_ID
+        keyTextField.text = Constants.shared.API_KEY
+        playlistIdTextField.text = Constants.shared.PLAYLIST_ID
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapView))
         self.view.addGestureRecognizer(tapGesture)
@@ -58,12 +58,37 @@ class InputViewController: UIViewController {
     }
     
     @IBAction func didTappedSignInButton() {
-        Constants.API_KEY = self.keyTextField.text ?? ""
-        Constants.PLAYLIST_ID = self.playlistIdTextField.text ?? ""
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.viewController) as? ViewController
-        view.window?.rootViewController = vc
-        view.window?.makeKeyAndVisible()
+        let error = validateField()
+        
+        if error != nil {
+            showError(errorLabel, error!)
+        }
+        else {
+            Constants.shared.API_KEY = self.keyTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            Constants.shared.PLAYLIST_ID = self.playlistIdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            
+            let vc = storyboard?.instantiateViewController(withIdentifier: Constants.viewController) as? ViewController
+            view.window?.rootViewController = vc
+            view.window?.makeKeyAndVisible()
+        }
+        
+    }
+    
+    // MARK: Custom Methods
+    func validateField() -> String? {
+        if keyTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            playlistIdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            
+            return "Please fill in all fields."
+        }
+        
+        return nil
+    }
+    
+    func showError(_ errorLabel: UILabel, _ message: String) {
+        errorLabel.text = message
+        errorLabel.alpha = 1
     }
     
     
@@ -75,6 +100,9 @@ class InputViewController: UIViewController {
         self.addPlaylistIdLabel()
         self.addPlaylistIdTextField()
         self.addSignInButton()
+        self.addErrorLabel()
+        
+        errorLabel.alpha = 0
     }
     
     func addTitleImageView() {
@@ -248,6 +276,32 @@ class InputViewController: UIViewController {
         top.isActive = true
         
         self.signInButton = button
+    }
+    
+    func addErrorLabel() {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(label)
+        
+        label.text = ""
+        label.textAlignment = .center
+        label.backgroundColor = .clear
+         
+        let centerX: NSLayoutConstraint
+        centerX = label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        
+        let top: NSLayoutConstraint
+        top = label.topAnchor.constraint(equalTo: self.signInButton.bottomAnchor, constant: 10)
+        
+        let left: NSLayoutConstraint
+        left = label.leftAnchor.constraint(equalTo: self.titleImageView.leftAnchor, constant: 0)
+        
+        centerX.isActive = true
+        top.isActive = true
+        left.isActive = true
+        
+        self.errorLabel = label
     }
 
 }
