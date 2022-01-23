@@ -38,6 +38,8 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        model.getVideos()
+        
         if self.videos.count == 0 {
             self.navbarTitle.title = "No vidoes to play"
         } else {
@@ -64,6 +66,9 @@ class ViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction func didTappedGearButton(_ sender: Any) {
+        
+        self.videos = [Video]()
+        
         let inputVC = storyboard?.instantiateViewController(withIdentifier: Constants.inputViewController) as? InputViewController
         view.window?.rootViewController = inputVC
         view.window?.makeKeyAndVisible()
