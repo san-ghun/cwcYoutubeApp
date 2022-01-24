@@ -23,6 +23,11 @@ class ViewController: UIViewController {
     var model = Model()
     var videos = [Video]()
     
+    var prevPageToken = ""
+    var nextPageToken = ""
+    var totalResults: Int?
+    var currentPageNumber = 1
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -40,14 +45,9 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let isVideo: Bool = model.getVideos()
-        
-        if isVideo {
-            self.navbarTitle.title = ""
-        }
-        else {
-            self.navbarTitle.title = "Oops, Plaese check key and id again"
-        }
+        model.getVideos()
+    
+        self.navbarTitle.title = "Oops, Plaese check key and id again"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,6 +77,20 @@ class ViewController: UIViewController {
         view.window?.makeKeyAndVisible()
     }
     
+    @IBAction func didTappedPrevButton(_ sender: Any) {
+        Constants.shared.PAGE_TOKEN = prevPageToken
+        currentPageNumber -= 1
+        
+        model.getVideos()
+    }
+    
+    @IBAction func didTappedNextButton(_ sender: Any) {
+        Constants.shared.PAGE_TOKEN = nextPageToken
+        currentPageNumber += 1
+        
+        model.getVideos()
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate, ModelDelegate {
@@ -96,6 +110,39 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, ModelDeleg
         } else {
             self.navbarTitle.title = "PlayList"
         }
+    }
+    
+    func pageInfoFetched(_ pageInfo: [String : Any]) {
+        
+        self.prevPageToken = pageInfo["prevPageToken"] as! String
+        
+        self.nextPageToken = pageInfo["nextPageToken"] as! String
+        
+        self.totalResults = pageInfo["totalResults"] as? Int
+        
+        if self.prevPageToken == "" {
+            self.prevPageButton.isEnabled = false
+        } else {
+            self.prevPageButton.isEnabled = true
+        }
+        
+        if self.nextPageToken == "" {
+            self.nextPageButton.isEnabled = false
+        } else {
+            self.nextPageButton.isEnabled = true
+        }
+        
+        pageLabel.text = { () -> String in
+            let result: String
+            
+            var temp = Double(totalResults!) / Double(Constants.shared.MAX_RESULTS)
+            temp = ceil(temp)
+            
+            result = "\(currentPageNumber)/\(Int(temp))"
+            
+            return result
+        }()
+        
     }
     
     // MARK: - TableView DataSource Methods

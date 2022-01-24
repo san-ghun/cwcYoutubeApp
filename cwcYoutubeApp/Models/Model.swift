@@ -10,6 +10,7 @@ import Foundation
 /// Protocol for Model object to set delegate
 protocol ModelDelegate {
     func videosFetched(_ videos: [Video])
+    func pageInfoFetched(_ pageInfo: [String: Any])
 }
 
 /**
@@ -20,14 +21,12 @@ class Model {
     var delegate: ModelDelegate?
     
     /// A method to get videos data and decode into a list of video objects and fetch to delegate.
-    func getVideos() -> Bool {
-        
-        var result = false
+    func getVideos() {
         
         // Create a URL object
         let url = URL(string: Constants.shared.API_URL)
         
-        guard url != nil else { return result }
+        guard url != nil else { return }
         
         // Get a URLSession object
         let session = URLSession.shared
@@ -49,6 +48,13 @@ class Model {
                 
                 let response = try decoder.decode(Response.self, from: data!)
                 
+                // Make a dict to prepare fetch page information
+                let pageInfo: [String: Any] = [
+                    "prevPageToken": response.prevPageToken,
+                    "nextPageToken": response.nextPageToken,
+                    "totalResults": response.totalResults ?? 0
+                ]
+                
                 if response.items != nil {
                     
                     DispatchQueue.main.async {
@@ -56,7 +62,8 @@ class Model {
                         // Call the "videosFetched" method of the delegate
                         self.delegate?.videosFetched(response.items!)
                         
-                        result = true
+                        // Call the "pageInfoeFetched" method of the delegate
+                        self.delegate?.pageInfoFetched(pageInfo)
                     }
                 }
                 
@@ -72,6 +79,5 @@ class Model {
         // Fire off the task
         dataTask.resume()
         
-        return result
     }
 }

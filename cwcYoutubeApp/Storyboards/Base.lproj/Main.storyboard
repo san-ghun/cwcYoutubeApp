@@ -56,6 +56,9 @@
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="0.0"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didTappedPrevButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xyk-i1-aj0"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emF-aF-Bnw">
                                         <rect key="frame" x="138" y="0.0" width="138" height="31"/>
@@ -72,6 +75,9 @@
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="0.0"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didTappedNextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DPg-QH-fJX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
