@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,8 +44,45 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" verticalCompressionResistancePriority="748" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ITp-NT-kcv">
+                                <rect key="frame" x="0.0" y="88" width="414" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eW-gB-Qgr">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="31"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="PREV" imagePadding="5">
+                                            <imageReference key="image" image="chevron.backward.2" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="bold"/>
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="0.0"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didTappedPrevButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xyk-i1-aj0"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emF-aF-Bnw">
+                                        <rect key="frame" x="138" y="0.0" width="138" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6Y-Ve-Fzd">
+                                        <rect key="frame" x="276" y="0.0" width="138" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="NEXT" imagePadding="5" titleAlignment="automatic">
+                                            <imageReference key="image" image="chevron.forward.2" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="bold"/>
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="0.0"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="didTappedNextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DPg-QH-fJX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RO8-v0-3ND">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="119" width="414" height="743"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoCell" id="0of-5G-GCS" customClass="VideoTableViewCell" customModule="cwcYoutubeApp" customModuleProvider="target">
@@ -104,13 +142,19 @@
                             <constraint firstItem="RO8-v0-3ND" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="If2-aN-lfN"/>
                             <constraint firstItem="ahw-6B-T2u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="In2-gB-SGa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RO8-v0-3ND" secondAttribute="trailing" id="Tun-gg-kRh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ITp-NT-kcv" secondAttribute="trailing" id="UX8-fq-AMl"/>
+                            <constraint firstItem="ITp-NT-kcv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aQ3-QH-epG"/>
                             <constraint firstItem="ahw-6B-T2u" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dOS-ZG-LsT"/>
-                            <constraint firstItem="RO8-v0-3ND" firstAttribute="top" secondItem="ahw-6B-T2u" secondAttribute="bottom" id="eNO-oi-MGM"/>
+                            <constraint firstItem="RO8-v0-3ND" firstAttribute="top" secondItem="ITp-NT-kcv" secondAttribute="bottom" id="eNO-oi-MGM"/>
+                            <constraint firstItem="ITp-NT-kcv" firstAttribute="top" secondItem="ahw-6B-T2u" secondAttribute="bottom" id="tPI-gK-TOd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="gearButton" destination="CQU-vb-li7" id="35F-lh-EUh"/>
                         <outlet property="navbarTitle" destination="Rel-NL-PgX" id="dEQ-S4-NpW"/>
+                        <outlet property="nextPageButton" destination="n6Y-Ve-Fzd" id="ZRO-7Z-NJu"/>
+                        <outlet property="pageLabel" destination="emF-aF-Bnw" id="54V-82-vvA"/>
+                        <outlet property="prevPageButton" destination="6eW-gB-Qgr" id="2N0-aW-zlf"/>
                         <outlet property="tableView" destination="RO8-v0-3ND" id="D6M-Ym-8JY"/>
                     </connections>
                 </viewController>
@@ -182,6 +226,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward.2" catalog="system" width="128" height="105"/>
+        <image name="chevron.forward.2" catalog="system" width="128" height="105"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

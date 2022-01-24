@@ -28,13 +28,18 @@ class InputViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // Set background color
         self.view.backgroundColor = .darkGray
         
+        // Call function to build View
         self.addViewsWithCode()
         
+        // Present stored key and id values when view loaded
         keyTextField.text = Constants.shared.API_KEY
         playlistIdTextField.text = Constants.shared.PLAYLIST_ID
         
+        // Add tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapView))
         self.view.addGestureRecognizer(tapGesture)
     }
@@ -54,20 +59,26 @@ class InputViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction func tapView(sender: UITapGestureRecognizer) {
+        
+        // Will end editing if tap view during editing
         self.view.endEditing(true)
     }
     
     @IBAction func didTappedSignInButton() {
         
+        // Validate text field
         let error = validateField()
         
         if error != nil {
             showError(errorLabel, error!)
         }
         else {
+            
+            // Store key and id to singleton instance
             Constants.shared.API_KEY = self.keyTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
             Constants.shared.PLAYLIST_ID = self.playlistIdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
             
+            // Show and make ViewController the key window
             let vc = storyboard?.instantiateViewController(withIdentifier: Constants.viewController) as? ViewController
             view.window?.rootViewController = vc
             view.window?.makeKeyAndVisible()
@@ -77,6 +88,8 @@ class InputViewController: UIViewController {
     
     // MARK: Custom Methods
     func validateField() -> String? {
+        
+        // Check text fields are empty
         if keyTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             playlistIdTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             
@@ -87,13 +100,19 @@ class InputViewController: UIViewController {
     }
     
     func showError(_ errorLabel: UILabel, _ message: String) {
+        
+        // Assign error message to error label text
         errorLabel.text = message
+        
+        // Make error label visible
         errorLabel.alpha = 1
     }
     
     
     // MARK: - View with Code
     func addViewsWithCode() {
+        
+        // Call methods to build UI components
         self.addTitleImageView()
         self.addKeyLabel()
         self.addKeyTextField()
@@ -102,6 +121,7 @@ class InputViewController: UIViewController {
         self.addSignInButton()
         self.addErrorLabel()
         
+        // Make error label invisible
         errorLabel.alpha = 0
     }
     

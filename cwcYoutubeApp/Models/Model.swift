@@ -10,6 +10,7 @@ import Foundation
 /// Protocol for Model object to set delegate
 protocol ModelDelegate {
     func videosFetched(_ videos: [Video])
+    func pageInfoFetched(_ pageInfo: [String: Any])
 }
 
 /**
@@ -35,6 +36,7 @@ class Model {
             
             // Check if there are any errors
             if error != nil || data == nil {
+                //dump(error!.localizedDescription)
                 return
             }
             
@@ -46,17 +48,27 @@ class Model {
                 
                 let response = try decoder.decode(Response.self, from: data!)
                 
+                // Make a dict to prepare fetch page information
+                let pageInfo: [String: Any] = [
+                    "prevPageToken": response.prevPageToken,
+                    "nextPageToken": response.nextPageToken,
+                    "totalResults": response.totalResults ?? 0
+                ]
+                
                 if response.items != nil {
                     
                     DispatchQueue.main.async {
                         
                         // Call the "videosFetched" method of the delegate
                         self.delegate?.videosFetched(response.items!)
+                        
+                        // Call the "pageInfoeFetched" method of the delegate
+                        self.delegate?.pageInfoFetched(pageInfo)
                     }
                 }
                 
                 
-                dump(response)
+                //dump(response)
             }
             catch {
                 

@@ -18,18 +18,18 @@ import Foundation
 class Constants {
     static let shared: Constants = Constants()
     
-//    static var API_KEY = ""
-//    static var PLAYLIST_ID = ""
-//    static var API_URL = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=\(Constants.PLAYLIST_ID)&key=\(Constants.API_KEY)"
-    
+    var MAX_RESULTS = 10
     var API_KEY = ""
     var PLAYLIST_ID = ""
+    var PAGE_TOKEN = ""
+    
     var API_URL: String {
         get {
-            "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=\(Constants.shared.PLAYLIST_ID)&key=\(Constants.shared.API_KEY)"
+            "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=\(MAX_RESULTS)&pageToken=\(PAGE_TOKEN)&playlistId=\(Constants.shared.PLAYLIST_ID)&key=\(Constants.shared.API_KEY)"
         }
     }
     
+    // Storyboard related constant values
     static let viewController = "VC"
     static let inputViewController = "InputVC"
     static var VIDEOCELL_ID = "VideoCell"
