@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var navbarTitle: UINavigationItem!
     @IBOutlet weak var gearButton: UIBarButtonItem!
     
+    @IBOutlet weak var prevPageButton: UIButton!
+    @IBOutlet weak var nextPageButton: UIButton!
+    @IBOutlet weak var pageLabel: UILabel!
+    
     var model = Model()
     var videos = [Video]()
     
@@ -31,19 +35,18 @@ class ViewController: UIViewController {
         
         // Set itself as the delegate of the model
         model.delegate = self
-        
-        model.getVideos()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        model.getVideos()
+        let isVideo: Bool = model.getVideos()
         
-        if self.videos.count == 0 {
-            self.navbarTitle.title = "No vidoes to play"
-        } else {
+        if isVideo {
             self.navbarTitle.title = ""
+        }
+        else {
+            self.navbarTitle.title = "Oops, Plaese check key and id again"
         }
     }
     
@@ -87,6 +90,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, ModelDeleg
         
         // Refresh the tableView
         tableView.reloadData()
+        
+        if self.videos.count == 0 {
+            self.navbarTitle.title = "No video in list"
+        } else {
+            self.navbarTitle.title = "PlayList"
+        }
     }
     
     // MARK: - TableView DataSource Methods

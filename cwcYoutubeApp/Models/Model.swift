@@ -20,12 +20,14 @@ class Model {
     var delegate: ModelDelegate?
     
     /// A method to get videos data and decode into a list of video objects and fetch to delegate.
-    func getVideos() {
+    func getVideos() -> Bool {
+        
+        var result = false
         
         // Create a URL object
         let url = URL(string: Constants.shared.API_URL)
         
-        guard url != nil else { return }
+        guard url != nil else { return result }
         
         // Get a URLSession object
         let session = URLSession.shared
@@ -35,6 +37,7 @@ class Model {
             
             // Check if there are any errors
             if error != nil || data == nil {
+                //dump(error!.localizedDescription)
                 return
             }
             
@@ -52,11 +55,13 @@ class Model {
                         
                         // Call the "videosFetched" method of the delegate
                         self.delegate?.videosFetched(response.items!)
+                        
+                        result = true
                     }
                 }
                 
                 
-                dump(response)
+                //dump(response)
             }
             catch {
                 
@@ -67,5 +72,6 @@ class Model {
         // Fire off the task
         dataTask.resume()
         
+        return result
     }
 }
