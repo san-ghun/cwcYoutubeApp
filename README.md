@@ -1,8 +1,25 @@
 # cwcYoutubeApp
 
+[![Build Status](https://app.bitrise.io/app/a72bd9d616b02e76/status.svg?token=xO9QzjkRPLhb0xyVPobZ1A&branch=main)](https://app.bitrise.io/app/a72bd9d616b02e76)
+
+is a demo app to practice iOS development with Swift UIKit, YouTube API, Git with Github, and Bitrise.
+
 ---
 
-[![Build Status](https://app.bitrise.io/app/a72bd9d616b02e76/status.svg?token=xO9QzjkRPLhb0xyVPobZ1A&branch=main)](https://app.bitrise.io/app/a72bd9d616b02e76)
+- Objective
+  - [x] Practice and learn how to manage project with Issues and Pull requests feature in Github
+  - [x] Learn what is CI/CD and Practice how to manage and work with by using the Bitrise
+  - [ ] Deploy the App with Ad Hoc as method of distribution
+
+---
+
+### To build in your Mac
+
+1. Git clone the repository to the targeted path or directory in your Mac.
+2. Open the project with Xcode.
+3. Go to "File >> Add Packages", and add the "[youtube-ios-player-helper](https://github.com/youtube/youtube-ios-player-helper)".
+  - To search the package, enter the URL, https://github.com/youtube/youtube-ios-player-helper
+  - You can find more information from the package repository page and the YouTube Data API v3 Documentation page.
 
 ---
 
