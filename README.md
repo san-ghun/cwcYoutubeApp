@@ -4,6 +4,10 @@
 
 is a demo app to practice iOS development with Swift UIKit, YouTube API, Git with Github, and Bitrise.
 
+Assume that the user has knowledge to create and handle API Key from Google Cloud Platform and API from YouTube API.  
+- The demo app requires to input API Key as text that allows user to access to YouTube data API v3, the app stores API key internally only, and only uses to call API to get Video data from YouTube.   
+- The app also requires YouTube Playlist ID, which can be found from URL of the Playlist, user can input the Playlist ID as text.
+
 ---
 
 - Objective
